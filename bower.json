@@ -1,0 +1,22 @@
+{
+  "name": "todo-list",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "bootstrap": "^3.3.7"
+  },
+  "authors": [
+    "Nazarii Muzychuk <muzychuk.n@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}
