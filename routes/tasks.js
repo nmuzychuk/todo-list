@@ -13,7 +13,7 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/:id', function(req, res, next){
-    Task.find({_id: req.params.id}).exec(function(err, task){
+    Task.findOne({_id: req.params.id}).exec(function(err, task){
         if (err) { res.send(err) }
         res.send(task);
     });
@@ -22,12 +22,19 @@ router.get('/:id', function(req, res, next){
 router.post('/', function(req, res, next){
     var task = new Task({
         text: req.body.text,
-        isDone: false
     });
 
     task.save(function (err, task) {
         if (err) { res.send(err) }
-        res.json(201, task);
+        res.status(201).json(task);
+    });
+});
+
+router.put('/:id', function(req, res, next){
+    Task.findByIdAndUpdate(
+        req.params.id, {text: req.body.text}, {new: true}, function(err, task){
+        if (err) { res.send(err) }
+        res.send(task);
     });
 });
 

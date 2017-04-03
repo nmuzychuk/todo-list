@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var TaskSchema = new Schema({
     text: String,
-    isDone: Boolean
+    isDone: { type: Boolean, default: false }
 });
 
 var Task = mongoose.model('Task', TaskSchema);
