@@ -10,7 +10,7 @@ var app = express();
 var port = 3000;
 
 mongoose.Promise = global.Promise;
-var db = mongoose.connect('mongodb://localhost/todolist');
+mongoose.connect('mongodb://localhost/todolist');
 
 app.set('view engine', 'pug');
 

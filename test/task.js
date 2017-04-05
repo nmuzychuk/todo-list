@@ -2,7 +2,8 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var path = require('path');
 var server = require(path.join(__dirname, '..', 'server'));
-var should = chai.should();
+
+chai.should();
 
 var Task = require(path.join('..', 'models', 'task'));
 
