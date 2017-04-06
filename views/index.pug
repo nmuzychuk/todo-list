@@ -6,8 +6,33 @@ html(ng-app='todoList')
     script(type='text/javascript'
            src='/bower_components/angular/angular.min.js')
     script(type='text/javascript' src='/javascripts/app.js')
+
   body(ng-controller='TasksCtrl')
     div(class='container')
       div(class='row')
-        div(class='col-lg-12')
-          p {{ tasks }}
+        div(class='page-header text-center')
+          h1 To-Do List
+            span(class='badge') {{ tasks.length }}
+
+      div(class='row')
+        div(class='col-md-6 col-md-offset-3')
+          form(name='taskForm' class='form-inline'
+               ng-submit='createTask(task)')
+            div(class='form-group')
+              input(class='form-control' required ng-model='task.text'
+                    placeholder='New task')
+            button(type='submit' class='btn btn-primary'
+                   ng-disabled='taskForm.$invalid') Save
+
+      div(class='row')
+        div(class='col-md-6 col-md-offset-3')
+          ul(class='list-group')
+            li(class='list-group-item' ng-repeat='task in tasks'
+               ng-class='task.isDone ? "list-group-item-success" : "" ')
+              a(href='javascript:void(0);'
+                ng-style='task.isDone ? {"text-decoration":"line-through"} : {}'
+                ng-click='updateTask($index)') {{ task.text}}
+              span(class='pull-right')
+                button(type='button' class='close'
+                       ng-click='deleteTask($index)')
+                  span &times;

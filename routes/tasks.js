@@ -32,7 +32,7 @@ router.post('/', function(req, res){
 
 router.put('/:id', function(req, res){
     Task.findByIdAndUpdate(
-        req.params.id, {text: req.body.text}, {new: true}, function(err, task){
+        req.params.id, {isDone: req.body.isDone}, {new: true}, function(err, task){
         if (err) { res.send(err) }
         res.send(task);
     });

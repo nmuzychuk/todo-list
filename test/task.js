@@ -51,17 +51,16 @@ describe('Tasks', function() {
 
     it('should update a task', function(done) {
         var task = new Task({text: 'Task', isDone: false});
-        var updatedText = 'Task updated';
 
         task.save().then(function(data) {
             chai.request(server)
             .put('/api/tasks/' + data.id)
-            .send({text: updatedText})
+            .send({isDone: true})
             .end(function(err, res) {
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('object');
-                res.body.text.should.equal(updatedText);
+                res.body.isDone.should.equal(true);
                 done();
             });
         });
