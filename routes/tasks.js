@@ -5,21 +5,21 @@ var router = express.Router();
 
 var Task = require(path.join(__dirname, '..', 'models', 'task'));
 
-router.get('/', function(req, res){
-    Task.find().exec(function(err, tasks){
+router.get('/', function (req, res) {
+    Task.find().exec(function (err, tasks) {
         if (err) { res.send(err) }
         res.send(tasks);
     });
 });
 
-router.get('/:id', function(req, res){
-    Task.findOne({_id: req.params.id}).exec(function(err, task){
+router.get('/:id', function (req, res) {
+    Task.findOne({ _id: req.params.id }).exec(function (err, task) {
         if (err) { res.send(err) }
         res.send(task);
     });
 });
 
-router.post('/', function(req, res){
+router.post('/', function (req, res) {
     var task = new Task({
         text: req.body.text,
     });
@@ -30,16 +30,16 @@ router.post('/', function(req, res){
     });
 });
 
-router.put('/:id', function(req, res){
+router.put('/:id', function (req, res) {
     Task.findByIdAndUpdate(
-        req.params.id, {isDone: req.body.isDone}, {new: true}, function(err, task){
-        if (err) { res.send(err) }
-        res.send(task);
-    });
+        req.params.id, { isDone: req.body.isDone }, { new: true }, function (err, task) {
+            if (err) { res.send(err) }
+            res.send(task);
+        });
 });
 
-router.delete('/:id', function(req, res){
-    Task.remove({_id: req.params.id}).exec(function(err, task){
+router.delete('/:id', function (req, res) {
+    Task.remove({ _id: req.params.id }).exec(function (err, task) {
         if (err) { res.send(err) }
         res.send(task);
     });

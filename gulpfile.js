@@ -10,12 +10,12 @@ gulp.task('nodemon', function () {
     });
 });
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
     // ESLint ignores files with "node_modules" paths.
     // So, it's best to have gulp ignore the directory as well.
     // Also, Be sure to return the stream from the task;
     // Otherwise, the task may end before the stream has finished.
-    return gulp.src(['**/*.js','!node_modules/**','!public/bower_components/**'])
+    return gulp.src(['**/*.js', '!node_modules/**', '!public/bower_components/**'])
         // eslint() attaches the lint output to the "eslint" property
         // of the file object so it can be used by other modules.
         .pipe(eslint())
@@ -27,10 +27,10 @@ gulp.task('lint', function() {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('test', function() {
-    return gulp.src('test.js', {read: false})
+gulp.task('test', function () {
+    return gulp.src('test.js', { read: false })
         // `gulp-mocha` needs filepaths so you can't have any plugins before it
-        .pipe(mocha({reporter: 'nyan'}))
+        .pipe(mocha({ reporter: 'nyan' }))
 });
 
 gulp.task('default', ['lint', 'test']);

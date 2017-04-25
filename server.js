@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/todolist');
 
 app.set('view engine', 'pug');
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
