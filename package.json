@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "codacy-coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
     "test": "gulp",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
@@ -22,6 +23,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "bower": "^1.8.0",
+    "codacy-coverage": "^2.0.2",
     "express": "^4.15.2",
     "mongoose": "^4.9.2",
     "pug": "^2.0.0-beta11"
