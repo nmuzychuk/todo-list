@@ -28,9 +28,9 @@ gulp.task('lint', function () {
 });
 
 gulp.task('test', function () {
-    return gulp.src('test.js', { read: false })
+    return gulp.src('test.js', { allowEmpty: true })
         // `gulp-mocha` needs filepaths so you can't have any plugins before it
-        .pipe(mocha({ reporter: 'nyan' }))
+        .pipe(mocha({ reporter: 'nyan', exit: true }))
 });
 
-gulp.task('default', ['lint', 'test']);
+gulp.task('default', gulp.series('lint', 'test'));

@@ -3,7 +3,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "angular": "^1.6.4",
+    "angular": "^1.7.9",
     "bootstrap": "^3.3.7"
   },
   "authors": [
