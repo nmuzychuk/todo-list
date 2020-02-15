@@ -5,7 +5,7 @@ services:
 - mongodb
 after_success:
 - npm install -g istanbul
-- if [[ `node --version` == *v7* ]]; then npm run codacy-coverage; fi
+- npm run codacy-coverage
 env:
   global:
     secure: JtR6FPd2nLwEN6XeK91x0ttaRMdWxhi0/7yif/pmOsvbwuAGuNv/4KECYE4Moft4juHi2kzvk9Jign60stCY7nVQM2eWJM4agrkylcsubGtGF14zUCUzPLk6rK+Jf1uC9wVvB6LrpBM/yvNqGNVUK77aA14o/C4/7ySIa7u6VOuUWrA65oHmXhZAfXk6vWcNvrOty7iM9UHI6YPJIYjpaLn9XdR6k0hns+lO28j8kBk7zqGVfsk+o35vHOEwqGbK+KggWrbuHWG0/4ZhSuUuUH6h4e6OOvds6H0ViFMn8DSRZ/rXtSD+3JopEx1BrETcryqijHUnuLSH/9KxJRZmchhU3pzk9MyjENh7R9WAEO8zShPUu5zbXTOo0f7fSfUQQXmE2yTBq4ru/H0LU9BoEtbtnlZ6HQ89BIknhPx62/SoHzPJ/jlmI6IXWqw8DW0ufFuUE2JMr+17Gtpb/Xh5crRxF7ZITSUx6H71uJ0kM9jThOve65DoL8rYY9VvOAfWQL9lUTh/o/hbgWGYvRcmF8be9T8KI6nSGC3L1pdze5otCNtgx+iPaJ+xlC9LVbo6xXy1Udv8Z0pWRs3gVlV6JvXx5gzAkgi+KvafUP0yBAyqh3keeMzf2y/xGG/z8TaKFG5j2ARNOtwdBFUMvSPOCRTMmeSPqqjLRgLPuxuDGxY=
